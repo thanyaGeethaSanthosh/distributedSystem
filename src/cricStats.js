@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const getStatus = function () {
+const getCricketStats = function () {
   for (let i = 0; i < 1500; i++) {
     let a = 5 + 4;
   }
@@ -15,4 +15,4 @@ const getStatus = function () {
   });
 };
 
-module.exports = { getStatus };
+module.exports = getCricketStats;
