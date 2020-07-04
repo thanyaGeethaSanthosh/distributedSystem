@@ -14,7 +14,6 @@ app.use((req, res, next) => {
 
 app.get('/status/:id', (req, res) => {
   get(client, req.params.id).then((cricStats) => {
-    console.log(cricStats);
     res.send(JSON.stringify(cricStats));
   });
 });

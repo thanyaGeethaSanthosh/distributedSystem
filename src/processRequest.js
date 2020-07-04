@@ -25,6 +25,12 @@ const scheduleProcessing = function (client, id, params) {
   });
 };
 
+const completedProcessing = function (client, id, tags) {
+  const status = ['status', 'completed'];
+  const updatedTags = ['tags', JSON.stringify(tags)];
+  client.hmset(`job_${id}`, status.concat(updatedTags));
+};
+
 const addRequest = function (client, params) {
   return new Promise((resolve, reject) => {
     getId(client)
@@ -33,4 +39,4 @@ const addRequest = function (client, params) {
   });
 };
 
-module.exports = { get, addRequest, getId };
+module.exports = { get, addRequest, getId, completedProcessing };
