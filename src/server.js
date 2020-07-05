@@ -12,6 +12,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static(`${__dirname}/../public`))
+
 app.get('/status/:id', (req, res) => {
   get(client, req.params.id).then((cricStats) => {
     res.send(JSON.stringify(cricStats));

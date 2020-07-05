@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./index.js"></script>
+  <title>cricketPlayerInfo</title>
+</head>
+<body>
+  <div>
+    <div id="infoDiv">
+      <label for="players">players</label>
+       <select id="players" name="players">
+  <option value="35320" selected>Sachin Tendulkar</option>
+  <option value="253802">Virat Kohli</option>
+  <option value="28081">MS Dhoni</option>
+  <option value="235902">Rohit Sharma</option>
+  <option value="36084">Yuvraj Singh</option>
+  <option value="28114">Rahul Dravid</option>
+  <option value="28779">Saurav Ganguly</option>
+</select> <br>
+<label for="fields">fields</label>
+<select id="fields" name="fields">
+  <option value="batting" selected>batting</option>
+  <option value="bowling">bowling</option>
+</select> <br>
+<label for="formats">formats</label>
+<select id="formats" name="formats">
+  <option value="tests">tests</option>
+  <option value="T20Is">T20I</option>
+  <option value="ODIs" selected >ODI</option>
+  <option value="firstClass">firstClass</option>
+  <option value="listA">listA</option>
+  <option value="twenty20">twenty20</option>
+</select> 
+<input type="button" value="query" onclick="getPlayerDetails()">
+    </div>
+    <div>
+      <input type="text" name="requestId" id="requestId" placeholder="Give your request Id">
+<input type="button" value="check-status" onclick="getStatus()">
+    </div>
+    <div>
+      <p id="status"></p>
+    </div>
+  </div>
+</body>
+</html>

@@ -6,7 +6,6 @@ const getCricketStats = function ({ pid, field, format }) {
   }
   return new Promise((resolve, reject) => {
     fetch(`https://cricapi.com/api/playerStats/?pid=${pid}`, {
-      // fetch('https://cricapi.com/api/matches/', {
       method: 'GET',
       headers: { apikey: 'cSxbHiiXYGXEKTF2ORbwuwWHvqH2' },
     })
