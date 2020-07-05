@@ -18,7 +18,7 @@ app.get('/status/:id', (req, res) => {
   });
 });
 
-app.post('/cricInfo/:playerName', (req, res) => {
+app.post('/cricInfo/:pid/:field/:format', (req, res) => {
   addRequest(client, req.params).then((id) => {
     res.send(`id:${id}`);
     res.end();

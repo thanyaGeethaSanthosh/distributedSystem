@@ -21,7 +21,6 @@ const runLoop = function () {
       get(client, id).then((cricSet) => {
         getCricStats(cricSet)
           .then((json) => {
-            // console.log(json);
             completedProcessing(client, id, json);
             return id;
           })

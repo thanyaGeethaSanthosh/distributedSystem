@@ -1,17 +1,20 @@
 const fetch = require('node-fetch');
 
-const getCricketStats = function () {
+const getCricketStats = function ({ pid, field, format }) {
   for (let i = 0; i < 1500; i++) {
     let a = 5 + 4;
   }
   return new Promise((resolve, reject) => {
-    fetch('https://cricapi.com/api/matches/', {
+    fetch(`https://cricapi.com/api/playerStats/?pid=${pid}`, {
+      // fetch('https://cricapi.com/api/matches/', {
       method: 'GET',
       headers: { apikey: 'cSxbHiiXYGXEKTF2ORbwuwWHvqH2' },
-    }).then((response) => {
-      let status = response.json();
-      resolve(status);
-    });
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.table(res.data[field][format]);
+        resolve(res.data[field][format]);
+      });
   });
 };
 
