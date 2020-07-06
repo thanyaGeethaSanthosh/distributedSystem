@@ -182,3 +182,24 @@ h3 {
 .statusDiv .button {
   margin-top: 1rem;
 }
+
+.details-table {
+  height: fit-content;
+  visibility: hidden;
+  position: fixed;
+}
+
+.detailsDiv {
+  position: absolute;
+  left: 550px;
+  top: 150px;
+  height: 20rem;
+  padding-top: 1rem;
+}
+
+td {
+  border: 1px solid gray;
+  height: 1rem;
+  border-collapse: collapse;
+  size: 2rem;
+}
