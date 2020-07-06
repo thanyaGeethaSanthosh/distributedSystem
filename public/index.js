@@ -1,16 +1,20 @@
+/** @format */
+
 const getPlayerDetails = function () {
   const playerId = document.getElementById(`players`).value;
   const fieldName = document.getElementById(`fields`).value;
   const formatName = document.getElementById(`formats`).value;
-  sendXHR(
-    JSON.stringify({}),
-    `cricInfo/${playerId}/${fieldName}/${formatName}`,
-    'POST',
-    function () {
-      const id = this.response.split(':')[1];
-      document.getElementById(`requestId`).value = id;
-    }
-  );
+  if (playerId && fieldName && formatName) {
+    sendXHR(
+      JSON.stringify({}),
+      `cricInfo/${playerId}/${fieldName}/${formatName}`,
+      'POST',
+      function () {
+        const id = this.response.split(':')[1];
+        document.getElementById(`requestId`).value = id;
+      }
+    );
+  }
 };
 
 const getStatus = function () {
