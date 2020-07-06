@@ -17,9 +17,9 @@ const getStatus = function () {
   const id = document.getElementById(`requestId`).value;
   sendXHR(JSON.stringify({}), `/status/${id}`, 'GET', function () {
     const res = JSON.parse(this.response);
-    document.getElementById(
-      `status`
-    ).innerText = ` your request is ${res.status}`;
+    document.getElementById(`status`).innerText = res
+      ? ` Your request is ${res.status}`
+      : 'Wrong request';
   });
 };
 

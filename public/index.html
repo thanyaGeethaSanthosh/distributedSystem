@@ -1,5 +1,3 @@
-<!-- @format -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,59 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
     <script src="./index.js"></script>
-    <title>cricketPlayerInfo</title>
+    <title>Document</title>
   </head>
   <body>
-    <div class="main">
-      <div class="headerArea">
-        <div id="infoDiv" class="queryDiv">
-          <div class="optionDiv">
-            <label for="players">players</label>
-            <select class="dropDown" id="players" name="players">
-              <option value="35320" selected>Sachin Tendulkar</option>
-              <option value="253802">Virat Kohli</option>
-              <option value="28081">MS Dhoni</option>
-              <option value="235902">Rohit Sharma</option>
-              <option value="36084">Yuvraj Singh</option>
-              <option value="28114">Rahul Dravid</option>
-              <option value="28779">Saurav Ganguly</option>
-            </select>
-          </div>
-          <div class="optionDiv">
-            <label for="fields">fields</label>
-            <select class="dropDown" id="fields" name="fields">
-              <option value="batting" selected>batting</option>
-              <option value="bowling">bowling</option>
-            </select>
-          </div>
-          <div class="optionDiv">
-            <label for="formats">formats</label>
-            <select class="dropDown" id="formats" name="formats">
-              <option value="tests">tests</option>
-              <option value="T20Is">T20I</option>
-              <option value="ODIs" selected>ODI</option>
-              <option value="firstClass">firstClass</option>
-              <option value="listA">listA</option>
-              <option value="twenty20">twenty20</option>
-            </select>
-          </div>
-
-          <input type="button" value="query" onclick="getPlayerDetails()" />
+    <div class="container">
+      <div class="control-group">
+        <h3>Select your options</h3>
+        <div class="select">
+          <select id="players">
+            <option value="" disabled selected hidden>Select a player</option>
+            <option value="35320">Sachin Tendulkar</option>
+            <option value="253802">Virat Kohli</option>
+            <option value="28081">MS Dhoni</option>
+            <option value="235902">Rohit Sharma</option>
+            <option value="36084">Yuvraj Singh</option>
+            <option value="28114">Rahul Dravid</option>
+            <option value="28779">Saurav Ganguly</option>
+          </select>
+          <div class="select__arrow"></div>
         </div>
+        <div class="select">
+          <select id="fields">
+            <option value="" disabled selected hidden>Select a field</option>
+            <option value="batting">Batting</option>
+            <option value="bowling">Bowling</option>
+          </select>
+          <div class="select__arrow"></div>
+        </div>
+        <div class="select">
+          <select id="formats">
+            <option value="" disabled selected hidden>Select a format</option>
+            <option value="tests">Test</option>
+            <option value="T20Is">T20I</option>
+            <option value="ODIs">ODI</option>
+            <option value="firstClass">FirstClass</option>
+            <option value="listA">ListA</option>
+            <option value="twenty20">Twenty20</option>
+          </select>
+          <div class="select__arrow"></div>
+        </div>
+        <input
+          type="button"
+          class="button query"
+          value="Submit"
+          onclick="getPlayerDetails()"
+        />
+      </div>
+      <div class="control-group control-status">
         <div class="statusDiv">
           <input
             type="text"
             name="requestId"
             id="requestId"
+            class="inputBox"
             placeholder="Give your request Id"
           />
-          <input type="button" value="check-status" onclick="getStatus()" />
+          <input
+            type="button"
+            class="button"
+            value="Check status"
+            onclick="getStatus()"
+          />
         </div>
-        <div>
-          <p class="statusMessage" id="status"></p>
+        <div class="statusMessage">
+          <p id="status"></p>
         </div>
       </div>
-      <div></div>
     </div>
   </body>
 </html>
