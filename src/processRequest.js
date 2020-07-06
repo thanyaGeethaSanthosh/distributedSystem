@@ -27,7 +27,7 @@ const scheduleProcessing = function (client, id, params) {
 
 const completedProcessing = function (client, id, tags) {
   const status = ['status', 'completed'];
-  const updatedTags = ['tags', JSON.stringify(tags)];
+  const updatedTags = ['details', JSON.stringify(tags)];
   client.hmset(`job_${id}`, status.concat(updatedTags));
 };
 

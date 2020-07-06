@@ -24,7 +24,19 @@ const getStatus = function () {
     document.getElementById(`status`).innerText = res
       ? ` Your request is ${res.status}`
       : 'Wrong request';
+    const detailsTable = document.getElementsByClassName('details-table');
+    detailsTable[0].innerHTML = jsonAsTable(res.tags);
+    document.getElementById('details-table').style.visibility = 'visible';
   });
+};
+
+const jsonAsTable = function (rawData) {
+  let html = ``;
+  let playerStats = JSON.parse(rawData);
+  for (const field in playerStats) {
+    html += `<tr><td>${field}</td><td>${playerStats[field]}</td></tr>\n`;
+  }
+  return html;
 };
 
 const sendXHR = function (data, url, method, responseHandler) {
