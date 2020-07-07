@@ -185,8 +185,10 @@ h3 {
 
 .details-table {
   height: fit-content;
-  visibility: hidden;
   position: fixed;
+}
+#detailsDiv {
+  visibility: hidden;
 }
 
 .detailsDiv {

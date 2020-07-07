@@ -1,9 +1,6 @@
 const fetch = require('node-fetch');
 
 const getCricketStats = function ({ pid, field, format }) {
-  for (let i = 0; i < 1500; i++) {
-    let a = 5 + 4;
-  }
   return new Promise((resolve, reject) => {
     fetch(`https://cricapi.com/api/playerStats/?pid=${pid}`, {
       method: 'GET',

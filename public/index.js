@@ -26,7 +26,7 @@ const getStatus = function () {
       : 'Wrong request';
     const detailsTable = document.getElementsByClassName('details-table');
     detailsTable[0].innerHTML = jsonAsTable(res.tags);
-    document.getElementById('details-table').style.visibility = 'visible';
+    document.getElementById('detailsDiv').style.visibility = 'visible';
   });
 };
 
