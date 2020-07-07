@@ -1,6 +1,6 @@
-/** @format */
-
 const getPlayerDetails = function () {
+  document.getElementById('detailsDiv').style.visibility = 'hidden';
+  document.getElementById(`status`).innerText = '';
   const playerId = document.getElementById(`players`).value;
   const fieldName = document.getElementById(`fields`).value;
   const formatName = document.getElementById(`formats`).value;
@@ -18,15 +18,19 @@ const getPlayerDetails = function () {
 };
 
 const getStatus = function () {
+  document.getElementById('detailsDiv').style.visibility = 'hidden';
   const id = document.getElementById(`requestId`).value;
   sendXHR(JSON.stringify({}), `/status/${id}`, 'GET', function () {
+    console.log(this.response);
     const res = JSON.parse(this.response);
     document.getElementById(`status`).innerText = res
       ? ` Your request is ${res.status}`
       : 'Wrong request';
-    const detailsTable = document.getElementsByClassName('details-table');
-    detailsTable[0].innerHTML = jsonAsTable(res.tags);
-    document.getElementById('detailsDiv').style.visibility = 'visible';
+    if (res.status === 'completed') {
+      const detailsTable = document.getElementsByClassName('details-table');
+      detailsTable[0].innerHTML = jsonAsTable(res.details);
+      document.getElementById('detailsDiv').style.visibility = 'visible';
+    }
   });
 };
 
