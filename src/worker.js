@@ -1,6 +1,6 @@
 const redis = require('redis');
 const client = redis.createClient({ db: 1 });
-const getCricStats = require('./cricStats');
+const { getCricStats, getPlayerId } = require('./cricStats');
 const { get, completedProcessing } = require('./processRequest');
 
 const getJob = function () {
@@ -19,7 +19,7 @@ const runLoop = function () {
   getJob()
     .then((id) => {
       get(client, id).then((cricSet) => {
-        getCricStats(cricSet)
+        getPlayerId(cricSet)
           .then((json) => {
             completedProcessing(client, id, json);
             return id;

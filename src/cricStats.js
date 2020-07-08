@@ -1,6 +1,19 @@
 const fetch = require('node-fetch');
 
-const getCricketStats = function ({ pid, field, format }) {
+const getPlayerId = function ({ playerName, type }) {
+  return new Promise((resolve, reject) => {
+    fetch(`https://cricapi.com/api/playerFinder/?name=${playerName}`, {
+      method: 'GET',
+      headers: { apikey: 'cSxbHiiXYGXEKTF2ORbwuwWHvqH2' },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        resolve(res.data);
+      });
+  });
+};
+
+const getCricketStats = function (pid) {
   return new Promise((resolve, reject) => {
     fetch(`https://cricapi.com/api/playerStats/?pid=${pid}`, {
       method: 'GET',
@@ -8,10 +21,9 @@ const getCricketStats = function ({ pid, field, format }) {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.table(res.data[field][format]);
-        resolve(res.data[field][format]);
+        resolve(res.data);
       });
   });
 };
 
-module.exports = getCricketStats;
+module.exports = { getCricketStats, getPlayerId };

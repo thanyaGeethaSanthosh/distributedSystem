@@ -173,6 +173,14 @@ h3 {
   font-size: medium;
   font-weight: lighter;
 }
+
+.searchDiv .inputBox {
+  width: 95%;
+  padding-left: 0.4rem;
+  height: 1.7rem;
+  font-size: medium;
+  font-weight: lighter;
+}
 .statusMessage {
   color: rgb(83, 81, 81);
   font-weight: lighter;
@@ -183,9 +191,14 @@ h3 {
   margin-top: 1rem;
 }
 
+.searchDiv .button {
+  margin-top: 1rem;
+}
+.searchDiv {
+  height: fit-content;
+}
 .details-table {
   height: fit-content;
-  position: fixed;
 }
 #detailsDiv {
   visibility: hidden;
@@ -194,8 +207,8 @@ h3 {
 .detailsDiv {
   position: absolute;
   left: 550px;
-  top: 150px;
-  height: 20rem;
+  top: 15px;
+  height: fit-content;
   padding-top: 1rem;
 }
 

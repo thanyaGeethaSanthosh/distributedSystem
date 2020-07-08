@@ -12,7 +12,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static(`${__dirname}/../public`))
+app.use(express.static(`${__dirname}/../public`));
 
 app.get('/status/:id', (req, res) => {
   get(client, req.params.id).then((cricStats) => {
@@ -20,7 +20,7 @@ app.get('/status/:id', (req, res) => {
   });
 });
 
-app.post('/cricInfo/:pid/:field/:format', (req, res) => {
+app.post('/cricInfo/:playerName/:type', (req, res) => {
   addRequest(client, req.params).then((id) => {
     res.send(`id:${id}`);
     res.end();

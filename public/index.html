@@ -11,48 +11,6 @@
   </head>
   <body>
     <div class="container">
-      <div class="control-group">
-        <h3>Select your options</h3>
-        <div class="select">
-          <select id="players">
-            <option value="" disabled selected hidden>Select a player</option>
-            <option value="35320">Sachin Tendulkar</option>
-            <option value="253802">Virat Kohli</option>
-            <option value="28081">MS Dhoni</option>
-            <option value="235902">Rohit Sharma</option>
-            <option value="36084">Yuvraj Singh</option>
-            <option value="28114">Rahul Dravid</option>
-            <option value="28779">Saurav Ganguly</option>
-          </select>
-          <div class="select__arrow"></div>
-        </div>
-        <div class="select">
-          <select id="fields">
-            <option value="" disabled selected hidden>Select a field</option>
-            <option value="batting">Batting</option>
-            <option value="bowling">Bowling</option>
-          </select>
-          <div class="select__arrow"></div>
-        </div>
-        <div class="select">
-          <select id="formats">
-            <option value="" disabled selected hidden>Select a format</option>
-            <option value="tests">Test</option>
-            <option value="T20Is">T20I</option>
-            <option value="ODIs">ODI</option>
-            <option value="firstClass">FirstClass</option>
-            <option value="listA">ListA</option>
-            <option value="twenty20">Twenty20</option>
-          </select>
-          <div class="select__arrow"></div>
-        </div>
-        <input
-          type="button"
-          class="button query"
-          value="Submit"
-          onclick="getPlayerDetails()"
-        />
-      </div>
       <div class="control-group control-status">
         <div class="statusDiv">
           <input
@@ -77,6 +35,21 @@
         <table class="details-table">
           <tbody></tbody>
         </table>
+      </div>
+      <div class="control-group searchDiv">
+        <input
+          type="text"
+          placeholder="Enter player name"
+          id="inputBox"
+          class="inputBox"
+        />
+        <input
+          type="button"
+          class="button"
+          value="Search"
+          onclick="getPlayerInfo()"
+        />
+        <!-- <button onclick="getPlayerInfo()">search</button> -->
       </div>
     </div>
   </body>
