@@ -58,6 +58,7 @@ const sendXHR = function (data, url, method, responseHandler) {
 };
 
 const searchPlayers = function () {
+  document.getElementById(`status`).innerText = "";
   const playerName = document.getElementById(`inputBox`).value;
   if (playerName) {
     sendXHR(
@@ -73,6 +74,7 @@ const searchPlayers = function () {
 };
 
 const getPlayerInfo = function () {
+  document.getElementById(`status`).innerText = "";
   const playerName = document.getElementById(`nameForQuery`).value;
   if (playerName) {
     sendXHR(
