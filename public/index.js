@@ -14,17 +14,21 @@ const getStatus = function () {
   });
 };
 
-const createRowForField = function (field, playerStats) {
+const createRowForField = function ( playerStats) {
   let html = '<tr>';
-  // let headings = Object.keys(playerStats);
-  // headings.forEach((heading) => {
-  //   html += `<th>${heading}</th>`;
-  // });
-  // html += '</tr>';
+   html += `<th></th>`;
+  let headings = Object.keys(playerStats.firstClass);
+  headings.forEach((heading) => {
+    html += `<th>${heading}</th>`;
+  });
+  html += '</tr>';
 
-  for (const key in playerStats) {
-    const stats = JSON.stringify(playerStats[key]);
-    html += `<tr><td>${key}</td><td>${stats}</td></tr>\n`;
+  for (const format in playerStats) {
+    html += `<tr><td>${format}</td>`;
+    for (const key in playerStats[format]) {
+      html += `<td>${playerStats[format][key]}</td>`;
+    }
+    html += `</tr>\n`;
   }
   return html;
 };
@@ -34,9 +38,9 @@ const jsonAsTable = function (rawData, type) {
   let playerStats = JSON.parse(rawData);
   if (type === 'query') {
     html += `<tr><th>Batting</th></tr>`;
-    html += createRowForField('batting', playerStats.batting);
+    html += createRowForField( playerStats.batting);
     html += `<tr><th>Bowling</th></tr>`;
-    html += createRowForField('bowling', playerStats.bowling);
+    html += createRowForField( playerStats.bowling);
     return html;
   }
   playerStats.forEach((player) => {
