@@ -36,6 +36,21 @@
           <tbody></tbody>
         </table>
       </div>
+      <div class="control-group queryDiv">
+        <input
+          type="text"
+          placeholder="Enter player name"
+          id="nameForQuery"
+          class="inputBox"
+        />
+        <input
+          type="button"
+          class="button"
+          value="Submit"
+          onclick="getPlayerInfo()"
+        />
+        <!-- <button onclick="getPlayerInfo()">search</button> -->
+      </div>
       <div class="control-group searchDiv">
         <input
           type="text"
@@ -47,7 +62,7 @@
           type="button"
           class="button"
           value="Search"
-          onclick="getPlayerInfo()"
+          onclick="searchPlayers()"
         />
         <!-- <button onclick="getPlayerInfo()">search</button> -->
       </div>

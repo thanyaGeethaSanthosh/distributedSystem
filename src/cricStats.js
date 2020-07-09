@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const getPlayerId = function ({ playerName, type }) {
+const getPlayerId = function (playerName) {
   return new Promise((resolve, reject) => {
     fetch(`https://cricapi.com/api/playerFinder/?name=${playerName}`, {
       method: 'GET',
@@ -26,4 +26,21 @@ const getCricketStats = function (pid) {
   });
 };
 
-module.exports = { getCricketStats, getPlayerId };
+const doRequiredOperation = function ({ playerName, type }) {
+  if (type === 'query') {
+    return new Promise((resolve, reject) => {
+      getPlayerId(playerName).then((playerDetails) => {
+        // console.log(`hello ${JSON.stringify(playerDetails)[0].pid}`)
+        getCricketStats(playerDetails[0].pid).then((res) => resolve(res));
+      });
+    });
+  }
+  return new Promise((resolve, reject) => {
+    getPlayerId(playerName).then((res) => {
+      console.table(res);
+      resolve(res);
+    });
+  });
+};
+
+module.exports = { getCricketStats, getPlayerId, doRequiredOperation };
